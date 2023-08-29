@@ -1,0 +1,24 @@
+name: NASA Project CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# JObs to be done with every push  and pull request to main as specified above
+# And all steps for each jobs
+# checkout:
+# node makes sure that the machine has node. make sure node is installed on machine running this build with ver 16. this step is named
+# can run custom commands
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js version 16
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - run: npm install
+      - run: npm run build --prefix client
