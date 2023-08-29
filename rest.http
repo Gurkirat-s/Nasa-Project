@@ -1,0 +1,42 @@
+GET http://localhost:4000/v1/launches?limit=10&page=1 HTTP/1.1
+
+###
+
+GET http://localhost:4000/v1/planets HTTP/1.1
+
+###
+
+POST http://localhost:4000/v1/launches HTTP/1.1
+content-type: application/json
+
+{
+  "mission": "ZTM155",
+  "rocket": "ZTM Experimental IS1",
+  "target": "Kepler-62 f",
+  "launchDate": "January 17, 2030"
+}
+
+###
+
+POST http://localhost:4000/v1/launches HTTP/1.1
+content-type: application/json
+
+{
+  "mission": "Up and Awa2y3",
+  "rocket": "ZTM Experimental IS1",
+  "target": "Kepler-62 f",
+  "launchDate": "January 17, 2030"
+}
+
+###
+DELETE http://localhost:4000/v1/launches/105 HTTP/1.1
+
+###
+POST https://api.spacexdata.com/v4/launches/query HTTP/1.1
+content-type: application/json
+
+{
+  "query": {
+    "flight_number": 140
+  }
+}
